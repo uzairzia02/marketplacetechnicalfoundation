@@ -11,13 +11,11 @@ const links = [
   { name: "Home", href: "/" },
   { name: "Laptop Accessories", href: "/Laptop Accessories" },
   { name: "Mobile Accessories", href: "/Mobile Accessories" },
- 
 ];
 
 export const revalidate = 5; // Revalidate every 5 seconds
 
-
-export default function Header () {
+export default function Header() {
   const [cartVisible, setCartVisible] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathName = usePathname();
@@ -34,16 +32,14 @@ export default function Header () {
     <>
       <div className="w-full h-16 px-4 md:px-8 lg:px-16 flex items-center justify-between fixed top-0 left-0 z-50 bg-white shadow-lg">
         {/* Left Section */}
-          <Link href={"/"}  >
-        <div className="flex gap-2 md:gap-5 items-center">
-          <FaHeadphones className="w-8 h-8 md:w-10 md:h-10" />
-          <p className="text-base md:text-xl font-semibold italic">
-            Accessories Hub
-          </p>
-        </div>
-          </Link>
-
-          
+        <Link href={"/"}>
+          <div className="flex gap-2 md:gap-5 items-center">
+            <FaHeadphones className="w-8 h-8 md:w-10 md:h-10" />
+            <p className="text-base md:text-xl font-semibold italic">
+              Accessories Hub
+            </p>
+          </div>
+        </Link>
 
         {/* Middle Section - Links */}
         <div
@@ -70,12 +66,13 @@ export default function Header () {
               )}
             </div>
           ))}
-           <Link href="/login" className="text-base md:text-lg font-semibold text-gray-600 transition duration-300 hover:text-blue-600">
+          <Link
+            href="/login"
+            className="text-base md:text-lg font-semibold text-gray-600 transition duration-300 hover:text-blue-600"
+          >
             Login
           </Link>
-                    
         </div>
-       
 
         {/* Right Section - Icons */}
         <div className="flex gap-3 md:gap-5 items-center">
@@ -92,16 +89,9 @@ export default function Header () {
           <FiSearch className="w-5 h-5 md:w-6 md:h-6 text-gray-600 hover:text-blue-600 cursor-pointer" />
         </div>
       </div>
-     
 
       {/* Cart */}
       {cartVisible && <Cart />}
     </>
   );
 }
-
-
-
-
-
-
