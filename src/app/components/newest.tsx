@@ -4,6 +4,9 @@ import { Product } from "../../../interface";
 import Image from "next/image";
 import Link from "next/link";
 
+
+export const revalidate = 5; // Revalidate every 5 seconds
+
 async function getData() {
   const query = `*[_type == "product"][0...4] | order(_createdAt desc){
       _id,
@@ -17,6 +20,8 @@ async function getData() {
   const data = await client.fetch(query);
   return data;
 }
+
+
 
 export default async function Newest() {
   const data: Product[] = await getData();
