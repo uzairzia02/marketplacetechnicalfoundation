@@ -49,10 +49,8 @@ async function importData() {
         description: product.description,
         stock: product.stock,
         price: product.price,
-        discountPercentage: 0,
-        priceWithoutDiscount: product.price,
-        tags: product.category ? [product.category] : [],
-        sizes: [],
+        // tags: product.category ? [product.category] : [],
+        // sizes: [],
         image: imageRef ? {
           _type: 'image',
           asset: {

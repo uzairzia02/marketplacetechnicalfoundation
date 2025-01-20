@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import sanityClient from "@sanity/client";
 import Image from "next/image";
+import Link from "next/link";
 
 const sanity = sanityClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
@@ -12,6 +13,7 @@ const sanity = sanityClient({
 });
 
 interface Product {
+  slug: string;
   name: string;
   description: string;
   price: number;
@@ -40,7 +42,9 @@ export const ProductCards: React.FC = () => {
             description,
             price,
             "imageURL": image.asset->url,
-            "categoryName": category->category
+            "categoryName": category->category,
+            "slug": slug.current
+
           }
         `;
       try {
@@ -61,10 +65,12 @@ export const ProductCards: React.FC = () => {
 
   return (
     <div>
-      <h2 className="text-6xl font-extrabold text-center my-10 " > AccessoriesHub Data fetched from Sanity </h2>
+      <h2 className="text-6xl font-extrabold text-center my-10 " > All Products </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {products.map((product) => (
           <div key={product._id} className="border p-4 rounded-lg shadow-lg ">
+<Link href={`/product/${product.slug}`} className="hover:underline duration-300 ">
+
             <Image
               src={product.imageURL}
               alt={product.name}
@@ -73,7 +79,7 @@ export const ProductCards: React.FC = () => {
             />
 
             <h2 className="text-lg font-bold">{product.name}</h2>
-            <p className="text-gray-600">{product.description}</p>
+            <p className="text-gray-600 line-clamp-2 ">{product.description}</p>
             <p className="text-gray-800">{product.categoryName}</p>
             <div className="flex gap-5 items-center ">
               <p className="text-gray-800 font-bold text-2xl">
@@ -83,6 +89,7 @@ export const ProductCards: React.FC = () => {
                 $ {(product.price + 50).toFixed(2)}{" "}
               </p>
             </div>
+            </Link>
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           onClick={() => addToCart(product)}
         >Add to Cart
@@ -128,8 +135,8 @@ export const ProductCards: React.FC = () => {
 
 
 
-
      
     </div>
   );
 };
+
