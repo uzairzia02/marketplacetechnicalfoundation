@@ -1,5 +1,4 @@
-
-export default {
+const productSchema = {
     name: 'product',
     type: 'document',
     title: 'Product',
@@ -7,15 +6,15 @@ export default {
         {
             name: 'name',
             type: 'string',
-            title: 'Product Name'
+            title: 'Product Name',
         },
         {
             name: 'slug',
             type: 'slug',
             title: 'Slug',
             options: {
-                source: 'name'
-            }
+                source: 'name',
+            },
         },
         {
             name: 'description',
@@ -25,26 +24,28 @@ export default {
         {
             name: 'price',
             type: 'number',
-            title: 'Product Price'
+            title: 'Product Price',
         },
         {
             name: 'category',
             type: 'reference',
             title: 'Category',
-            to: [{type: 'category'}]
+            to: [{ type: 'category' }],
         },
         {
             name: 'image',
             type: 'image',
             title: 'Product Image',
             options: {
-                hotspot: true
-            }
+                hotspot: true,
+            },
         },
         {
             name: 'stock',
             type: 'number',
-            title: 'Product Stock'
-        }
-    ]
-}
+            title: 'Product Stock',
+        },
+    ],
+};
+
+export default productSchema;

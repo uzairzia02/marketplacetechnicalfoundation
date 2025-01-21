@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { client } from "../../sanity/lib/client"; // Ensure this points to your configured Sanity client
 import { Product } from "../../../interface";
+import Image from "next/image";
 
 
 export default function Cart() {
@@ -41,7 +42,7 @@ export default function Cart() {
               <div key={item._id} className="grid grid-cols-3 items-start gap-4">
                 <div className="col-span-2 flex items-start gap-4">
                   <div className="w-28 h-28 max-sm:w-24 max-sm:h-24 shrink-0 bg-gray-100 p-2 rounded-md">
-                    <img
+                    <Image
                       src={item.imageURL}
                       alt={item.name}
                       className="w-full h-full object-contain"

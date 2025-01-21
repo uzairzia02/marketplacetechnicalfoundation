@@ -1,7 +1,6 @@
 "use client"
 
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import exp from "constants";
 
 interface CartItem {
   id: string;

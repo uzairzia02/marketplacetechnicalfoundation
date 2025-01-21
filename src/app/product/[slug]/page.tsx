@@ -1,5 +1,5 @@
 import Navbar from "../../components/header";
-import { FullProduct, Product } from "../../../../interface";
+import { FullProduct } from "../../../../interface";
 import { client } from "@/sanity/lib/client";
 import { FaStar } from "react-icons/fa";
 import { FaExchangeAlt } from "react-icons/fa";

@@ -1,10 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import sanityClient from "@sanity/client";
+import { createClient } from "@sanity/client";
 import Image from "next/image";
 import Link from "next/link";
 
-const sanity = sanityClient({
+const sanity = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: "production",
   apiVersion: "2022-03-25",
@@ -29,7 +29,7 @@ interface Product {
   };
 }
 
-export const ProductCards: React.FC = () => {
+const ProductCards: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [cart, setCart] = useState<Product[]>([]);
 
@@ -152,3 +152,5 @@ export const ProductCards: React.FC = () => {
     </div>
   );
 };
+
+export default ProductCards;
