@@ -35,8 +35,6 @@ interface Product {
 const ProductCards: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const dispatch = useDispatch();
-  const [cart, setCart] = useState<Product[]>([]); 
-
   useEffect(() => {
     const fetchProducts = async () => {
       const query = `
