@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/footer";
+import Providers from "./redux/provider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -35,7 +36,7 @@ export default function RootLayout({
       <body
         className={`min-h-screen flex flex-col ${geistSans.variable} ${geistMono.variable} ${poppins.className} antialiased`}
       >
-        <main className="flex-grow">{children}</main>
+        <Providers><main className="flex-grow">{children} </main></Providers>
         <Footer />
       </body>
     </html>

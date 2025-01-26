@@ -16,7 +16,7 @@ export default function LoginPage() {
   return (
     <div className='mt-28' >
       <Header />
-      <form className="space-y-4 max-w-md m-auto ">
+      <form className="space-y-4 max-w-md m-auto">
       <input type="email" placeholder="Enter Email"
         className="px-4 py-3 bg-gray-100 w-full text-sm outline-none border-b-2 border-blue-500 rounded" />
 

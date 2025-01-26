@@ -6,6 +6,8 @@ import { FiSearch } from "react-icons/fi";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Cart from "./cart";
+import { Provider } from "react-redux";
+import store from "../redux/store";
 
 const links = [
   { name: "Home", href: "/" },
@@ -29,6 +31,8 @@ export default function Header() {
   };
 
   return (
+    <Provider store={store}>
+
     <>
       <div className="w-full h-16 px-4 md:px-8 lg:px-16 flex items-center justify-between fixed top-0 left-0 z-50 bg-white shadow-lg">
         {/* Left Section */}
@@ -86,12 +90,18 @@ export default function Header() {
             className="w-5 h-5 md:w-6 md:h-6 text-gray-600 hover:text-blue-600 cursor-pointer"
             onClick={toggleCart}
           />
-          <FiSearch className="w-5 h-5 md:w-6 md:h-6 text-gray-600 hover:text-blue-600 cursor-pointer" />
+        
+          <div className="flex items-center">
+            <input type="text" placeholder="Search" className="border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:border-blue-500" />
+            <FiSearch className="w-6 h-6 md:w-6 md:h-6 text-gray-600 hover:text-blue-600 cursor-pointer" />
+          </div>
         </div>
       </div>
 
       {/* Cart */}
       {cartVisible && <Cart />}
     </>
+    </Provider>
+
   );
 }

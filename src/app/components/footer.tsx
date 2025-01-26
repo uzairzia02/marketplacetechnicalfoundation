@@ -3,7 +3,7 @@ import React from "react";
 export default function Footer() {
   return (
     <div className="max-h-full w-full flex flex-col bottom-0 ">
-      <footer className="bg-gray-900 text-white py-12 px-4 font-sans tracking-wide">
+      <footer className="bg-gray-900 text-white mt-5 py-6 px-4 font-sans tracking-wide">
         <div className="text-center">
           <h6 className="text-lg text-gray-300">Stay connected with us:</h6>
 
@@ -116,7 +116,7 @@ export default function Footer() {
           </ul>
 
           <p className="text-base text-gray-300">
-            © ReadymadeUI. All rights reserved.
+            © Accessories Hub. All rights reserved.
           </p>
         </div>
       </footer>

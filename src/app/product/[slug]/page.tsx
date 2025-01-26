@@ -36,7 +36,8 @@ export default async function ProductPage({
   return (
     <div>
       <Navbar />
-      <div className="mt-16 flex gap-10 px-10 ">
+      <p className="text-4xl text-center italic font-extrabold text-gray-600 mt-20  " >{data.name} details </p>
+      <div className="mt-10 flex gap-10 px-10 ">
         {/* <ImageGalery images = {data.image} /> */}
         <div className="w-full overflow-hidden rounded-md bg-gray-200 hover:opacity-80 transition-opacity duration-300">
           <Image
@@ -107,7 +108,7 @@ export default async function ProductPage({
                 </div>
               </div>
             </div>
-            <div className="flex space-x-10 ">
+            {/* <div className="flex space-x-10 ">
               <button
                 className="px-6 py-2 bg-blue-800 rounded-lg text-white hover:bg-blue-400 duration-200"
                 // onClick={handleAddToCart}
@@ -119,7 +120,7 @@ export default async function ProductPage({
               <button className="px-6 py-2 bg-blue-800 rounded-lg text-white hover:bg-blue-400 duration-200">
                 Buy Now
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

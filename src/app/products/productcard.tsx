@@ -1,8 +1,11 @@
-"use client";
 import React, { useEffect, useState } from "react";
 import { createClient } from "@sanity/client";
+import { useDispatch } from "react-redux";
+import { addToCart as addToCartRedux } from "../redux/cartslice";
 import Image from "next/image";
 import Link from "next/link";
+
+
 
 const sanity = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
@@ -31,7 +34,8 @@ interface Product {
 
 const ProductCards: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
-  const [cart, setCart] = useState<Product[]>([]);
+  const dispatch = useDispatch();
+  const [cart, setCart] = useState<Product[]>([]); 
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -59,9 +63,17 @@ const ProductCards: React.FC = () => {
   }, []);
 
   const addToCart = (product: Product) => {
-    setCart((prevCart) => [...prevCart, product]);
-    alert(`${product.name} added to cart!`);
-  };
+    dispatch(
+      addToCartRedux({
+        _id: product._id,
+        name: product.name,
+        price: product.price,
+        quantity: 1,     
+        image: product.imageURL,
+      })
+    );
+    alert(`${product.name} added to cart`)
+  }
 
   return (
     <div>
@@ -106,50 +118,9 @@ const ProductCards: React.FC = () => {
           </div>
         ))}
 
-        {/* add to cart functionality */}
       </div>
 
-      {/* cart summary */}
-      <div className=" p-4 rounded-lg shadow-lg mt-10 ">
-        <h2 className="text-3xl font-bold text-center my-10 ">Cart Summary</h2>
-        {cart.length > 0 ? (
-          <ul className=" space-y-4 ">
-            {cart.map((item, index) => (
-              <li
-                key={index}
-                className=" w-[40%] border-black border-2 flex justify-between items-center bg-white shadow-sm p-4 rounded-md"
-              >
-                <div>
-                  <p className="text-lg font-semibold text-black ">
-                    {" "}
-                    {item.name}{" "}
-                  </p>
-                  <p className=" text-lg font-semibold text-black  ">
-                    {" "}
-                    ${item.price}{" "}
-                  </p>
-                  <p>
-                    {" "}
-                    Quantity: {
-                      cart.filter((i) => i._id === item._id).length
-                    }{" "}
-                  </p>
-                </div>
-                <Image
-                  src={item.imageURL}
-                  alt={item.name}
-                  width={50}
-                  height={50}
-                  className="rounded-md"
-                ></Image>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p className="text-center text-gray-600"> Your cart is empty. </p>
-        )}
       </div>
-    </div>
   );
 };
 
