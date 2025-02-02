@@ -1,9 +1,9 @@
 import { client } from '@/sanity/lib/client';
 import React from 'react';
-import { FullProduct } from '../../../interface';
+import { FullProduct } from '../../../../../interface';
 import Image from 'next/image';
 import Link from 'next/link';
-import Navbar from '../components/header';
+import Navbar from '../../../components/header';
 
 async function getData(category: string) {
     const decodedCategory = decodeURIComponent(category); // Decode URL-encoded strings

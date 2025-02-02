@@ -3,9 +3,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../redux/store";
 import { removeFromCart, updateCartItemQuantity } from "../redux/cartslice";
 import Image from "next/image";
+import { useRouter } from "next/navigation"; // Add this import
+
 
 export default function Cart() {
   const dispatch = useDispatch();
+  const router = useRouter(); // Initialize router
+
 
   // Fetch cart items from Redux store
   const cartItems = useSelector((state: RootState) => state.cart.items);
@@ -29,7 +33,7 @@ export default function Cart() {
   );
 
   return (
-    <div className="mt-16 fixed inset-0 w-full h-full bg-[rgba(0,0,0,0.5)] font-sans">
+    <div className="mt-16 fixed inset-0 z-50 ">
       <div className="w-full max-w-lg bg-white shadow-lg relative ml-auto h-screen">
         <div className="overflow-auto p-6 h-[calc(100vh-124px)]">
           <h3 className="text-2xl font-bold text-gray-800">Shopping Cart</h3>
@@ -101,9 +105,19 @@ export default function Cart() {
                 ${grandTotal.toFixed(2)}
               </span>
             </div>
-            <button className="mt-6 px-12 py-3 items-center text-xl flex m-auto bg-blue-700 rounded-lg text-white hover:bg-blue-900 hover:font-bold duration-200">
-              Check Out
-            </button>
+            <button 
+      className={`mt-6 px-12 py-3 items-center text-xl flex m-auto bg-blue-700 rounded-lg text-white hover:bg-blue-900 hover:font-bold duration-200 ${
+        cartItems.length === 0 ? 'opacity-50 cursor-not-allowed' : ''
+      }`}
+      onClick={() => {
+        if (cartItems.length > 0) {
+          router.push('/shipping');
+        }
+      }}
+      disabled={cartItems.length === 0}
+    >
+      Check Out
+    </button>
           </div>
         </div>
       </div>

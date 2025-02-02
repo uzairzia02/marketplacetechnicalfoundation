@@ -34,12 +34,12 @@ export default function Header() {
     <Provider store={store}>
 
     <>
-      <div className="w-full h-16 px-4 md:px-8 lg:px-16 flex items-center justify-between fixed top-0 left-0 z-50 bg-white shadow-lg">
+    <div className="w-full h-16 px-4 sm:px-6 md:px-8 lg:px-16 flex items-center justify-between fixed top-0 left-0 z-50 bg-white shadow-lg">
         {/* Left Section */}
         <Link href={"/"}>
-          <div className="flex gap-2 md:gap-5 items-center">
-            <FaHeadphones className="w-8 h-8 md:w-10 md:h-10" />
-            <p className="text-base md:text-xl font-semibold italic">
+          <div className="flex gap-2 sm:gap-3 md:gap-5 items-center">
+            <FaHeadphones className="w-6 h-6 sm:w-7 sm:h-7 md:w-10 md:h-10" />
+            <p className="text-sm sm:text-base md:text-xl font-semibold italic">
               Accessories Hub
             </p>
           </div>
@@ -49,13 +49,13 @@ export default function Header() {
         <div
           className={`${
             menuOpen ? "flex" : "hidden"
-          } md:flex flex-col md:flex-row gap-3 md:gap-5 items-center absolute md:static top-16 left-0 w-full md:w-auto bg-white md:bg-transparent shadow-md md:shadow-none p-4 md:p-0 z-40`}
+          } sm:flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-5 items-center absolute sm:static top-16 left-0 w-full sm:w-auto bg-white sm:bg-transparent shadow-md sm:shadow-none p-4 sm:p-0 z-40`}
         >
           {links.map((link, idx) => (
             <div key={idx}>
               {pathName === link.href ? (
                 <Link
-                  className="text-base md:text-lg font-semibold text-blue-600"
+                  className="text-sm sm:text-base md:text-lg font-semibold text-blue-600"
                   href={link.href}
                 >
                   {link.name}
@@ -63,7 +63,7 @@ export default function Header() {
               ) : (
                 <Link
                   href={link.href}
-                  className="text-base md:text-lg font-semibold text-gray-600 transition duration-300 hover:text-blue-600"
+                  className="text-sm sm:text-base md:text-lg font-semibold text-gray-600 transition duration-300 hover:text-blue-600"
                 >
                   {link.name}
                 </Link>
@@ -71,29 +71,29 @@ export default function Header() {
             </div>
           ))}
           <Link
-            href="/login"
-            className="text-base md:text-lg font-semibold text-gray-600 transition duration-300 hover:text-blue-600"
+            href="/signup"
+            className="text-sm sm:text-base md:text-lg font-semibold text-gray-600 transition duration-300 hover:text-blue-600"
           >
-            Login
+            Admin Login
           </Link>
         </div>
 
         {/* Right Section - Icons */}
-        <div className="flex gap-3 md:gap-5 items-center">
+        <div className="flex gap-2 sm:gap-3 md:gap-5 items-center">
           <button
-            className="md:hidden text-gray-600 hover:text-blue-600"
+            className="sm:hidden text-gray-600 hover:text-blue-600"
             onClick={toggleMenu}
           >
             {menuOpen ? "Close" : "Menu"}
           </button>
           <GrCart
-            className="w-5 h-5 md:w-6 md:h-6 text-gray-600 hover:text-blue-600 cursor-pointer"
+            className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-600 hover:text-blue-600 cursor-pointer"
             onClick={toggleCart}
           />
         
           <div className="flex items-center">
-            <input type="text" placeholder="Search" className="border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:border-blue-500" />
-            <FiSearch className="w-6 h-6 md:w-6 md:h-6 text-gray-600 hover:text-blue-600 cursor-pointer" />
+            <input type="text" placeholder="Search" className="border border-gray-300 rounded-md px-2 py-1 sm:px-3 sm:py-2 focus:outline-none focus:border-blue-500 w-20 sm:w-32 md:w-40" />
+            <FiSearch className="w-5 h-5 sm:w-6 sm:h-6 md:w-6 md:h-6 text-gray-600 hover:text-blue-600 cursor-pointer" />
           </div>
         </div>
       </div>

@@ -35,95 +35,61 @@ export default async function ProductPage({
 
   return (
     <div>
-      <Navbar />
-      <p className="text-4xl text-center italic font-extrabold text-gray-600 mt-20  " >{data.name} details </p>
-      <div className="mt-10 flex gap-10 px-10 ">
-        {/* <ImageGalery images = {data.image} /> */}
-        <div className="w-full overflow-hidden rounded-md bg-gray-200 hover:opacity-80 transition-opacity duration-300">
-          <Image
-            src={urlFor(data.imageURL).url()}
-            alt="product Image"
-            className=" h-[700px] w-full"
-            width={300}
-            height={300}
-          />
+  <Navbar />
+  <p className="text-3xl md:text-4xl text-center italic font-extrabold text-gray-600 mt-10 md:mt-20">
+    {data.name} details
+  </p>
+  <div className="mt-6 md:mt-10 flex flex-col md:flex-row gap-6 md:gap-10 px-4 md:px-10">
+    <div className="w-full md:w-1/2 overflow-hidden rounded-md bg-gray-200 hover:opacity-80 transition-opacity duration-300">
+      <Image
+        src={urlFor(data.imageURL).url()}
+        alt="product Image"
+        className="h-[300px] sm:h-[400px] md:h-[500px] lg:h-[700px] w-full object-cover"
+        width={300}
+        height={300}
+      />
+    </div>
+    <div className="py-6 md:py-10 w-full md:w-1/2">
+      <div className="mb-2 space-y-6 md:space-y-10">
+        <span className="text-lg md:text-xl text-gray-500">{data.categoryName}</span>
+        <h2 className="text-2xl md:text-4xl font-bold">{data.name}</h2>
+        <div className="flex items-center gap-x-3 md:gap-x-5">
+          <button className="rounded-xl bg-blue-600 flex gap-x-2 px-4 md:px-5 items-center py-1">
+            <span className="text-white text-base md:text-lg">4.5</span>
+            <FaStar />
+          </button>
+          <p className="text-sm md:text-lg">101 Ratings</p>
         </div>
-        <div className="py-10">
-          <div className="mb-2 space-y-10">
-            <span className=" text-xl text-gray-500  ">
-              {data.categoryName}{" "}
-            </span>
-            <h2 className="text-4xl font-bold "> {data.name} </h2>
-            <div className="flex items-center gap-x-5 ">
-              <button className=" rounded-xl bg-blue-600 flex gap-x-2 px-5 items-center py-1 ">
-                <span className="text-lg text-white ">4.5</span>
-                <FaStar className=" " />
-              </button>
-
-              <p className="text-lg ">101 Ratings </p>
+        <div className="space-y-6 md:space-y-10">
+          <div className="flex items-center gap-x-3 md:gap-x-5">
+            <p className="text-xl md:text-2xl font-bold text-gray-900">${data.price.toFixed(2)}</p>
+            <p className="line-through text-gray-400">${(data.price + 50).toFixed(2)}</p>
+          </div>
+          <p className="text-sm text-gray-600 text-justify tracking-wide max-w-[90%] sm:max-w-[600px]">
+            {data.description}
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:w-[600px]">
+            <div className="flex flex-col items-center text-center">
+              <FaExchangeAlt className="w-10 h-10 md:w-[70px] md:h-[70px]" />
+              <p>7 Days <span>Exchange</span></p>
             </div>
-            <div className="space-y-10 ">
-              <div className="flex items-center gap-x-5 ">
-                <p className="text-2xl font-bold text-gray-900 ">
-                  {" "}
-                  ${data.price.toFixed(2)}{" "}
-                </p>
-                <p className="line-through text-gray-400 ">
-                  {" "}
-                  ${(data.price + 50).toFixed(2)}{" "}
-                </p>
-              </div>
-              <p className="text-sm  text-gray-600 w-[650px] tracking-wide text-justify ">
-                {" "}
-                {data.description}{" "}
-              </p>
-
-              <div className="flex w-[600px] justify-between ">
-                <div className=" ">
-                  <FaExchangeAlt className="w-[70px] h-[70px] " />
-                  <p className="grid text-center ">
-                    7 Days <span>Exchange</span>{" "}
-                  </p>
-                </div>
-
-                <div className=" ">
-                  <FaHandshake className="w-[70px] h-[70px] " />
-                  <p className="grid text-center ">
-                    1 Year <span>Warranty</span>{" "}
-                  </p>
-                </div>
-
-                <div className=" ">
-                  <FaTruck className="w-[70px] h-[70px] " />
-                  <p className="grid text-center ">
-                    Free <span>Shipping</span>{" "}
-                  </p>
-                </div>
-
-                <div className=" ">
-                  <RiSecurePaymentFill className="w-[70px] h-[70px] " />
-                  <p className="grid text-center ">
-                    Secure <span>Payment</span>{" "}
-                  </p>
-                </div>
-              </div>
+            <div className="flex flex-col items-center text-center">
+              <FaHandshake className="w-10 h-10 md:w-[70px] md:h-[70px]" />
+              <p>1 Year <span>Warranty</span></p>
             </div>
-            {/* <div className="flex space-x-10 ">
-              <button
-                className="px-6 py-2 bg-blue-800 rounded-lg text-white hover:bg-blue-400 duration-200"
-                // onClick={handleAddToCart}
-              >
-                {" "}
-                Add to Cart
-              </button>
-
-              <button className="px-6 py-2 bg-blue-800 rounded-lg text-white hover:bg-blue-400 duration-200">
-                Buy Now
-              </button>
-            </div> */}
+            <div className="flex flex-col items-center text-center">
+              <FaTruck className="w-10 h-10 md:w-[70px] md:h-[70px]" />
+              <p>Free <span>Shipping</span></p>
+            </div>
+            <div className="flex flex-col items-center text-center">
+              <RiSecurePaymentFill className="w-10 h-10 md:w-[70px] md:h-[70px]" />
+              <p>Secure <span>Payment</span></p>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
   );
 }
