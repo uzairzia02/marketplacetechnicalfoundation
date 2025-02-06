@@ -70,12 +70,12 @@ export default function Header() {
               )}
             </div>
           ))}
-          <Link
+          {/* <Link
             href="/signup"
             className="text-sm sm:text-base md:text-lg font-semibold text-gray-600 transition duration-300 hover:text-blue-600"
           >
             Admin Login
-          </Link>
+          </Link> */}
         </div>
 
         {/* Right Section - Icons */}
