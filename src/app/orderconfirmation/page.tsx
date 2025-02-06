@@ -1,7 +1,7 @@
-"use client";
-import Link from 'next/link';
+"use client"; // Ensure this is a client-side environment
+import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import React from 'react';
+import Link from 'next/link';
 
 const OrderConfirmation = () => {
   const searchParams = useSearchParams();
@@ -29,4 +29,12 @@ const OrderConfirmation = () => {
   );
 };
 
-export default OrderConfirmation;
+const OrderConfirmationPage = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <OrderConfirmation />
+    </Suspense>
+  );
+};
+
+export default OrderConfirmationPage;

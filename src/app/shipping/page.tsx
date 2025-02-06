@@ -233,10 +233,12 @@ const ShippingDetails = () => {
                       htmlFor="cod"
                       className="ml-4 flex gap-2 cursor-pointer"
                     >
-                      <img
+                      <Image
                         src="https://png.pngtree.com/png-clipart/20210530/original/pngtree-cod-cash-on-delivery-fast-png-image_6367095.jpg"
                         className="w-20"
                         alt="cash on delivery"
+                        width={200}
+                        height={200}
                       />
                     </label>
                   </div>

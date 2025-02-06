@@ -1,6 +1,6 @@
 
     
-export default {
+const ShippingSchema = {
     name: 'shipping',
     title: 'Shipping Details',
     type: 'document',
@@ -41,7 +41,7 @@ export default {
         contact: 'contactNumber',
         total: 'grandTotal'
       },
-      prepare(selection: { id: any; contact: any; total: any; }) {
+      prepare(selection: { id: string; contact: number ; total: number; }) {
         return {
           title: `Order # ${selection.id}`,
           subtitle: `${selection.contact} - $${selection.total}`
@@ -51,3 +51,4 @@ export default {
     
   };
   
+  export default ShippingSchema;

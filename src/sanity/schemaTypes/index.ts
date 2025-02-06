@@ -3,8 +3,7 @@ import product from './product'
 import category from './category'
 import shipping from './shipping'
 import cartitem from './cartItem'
-import adminuser from './adminuser'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [product, category, shipping, cartitem, adminuser ],
+  types: [product, category, shipping, cartitem ],
 }
