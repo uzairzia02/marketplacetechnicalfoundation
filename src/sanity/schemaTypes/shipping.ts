@@ -16,6 +16,16 @@ export default {
       // Additional fields if needed
       { name: 'paymentMethod', title: 'Payment Method', type: 'string' },
       { name: 'grandTotal', title: 'Grand Total', type: 'number' },
+      {
+        name: 'orderDate',
+        title: 'Order Date',
+        type: 'datetime',
+        options: {
+          dateFormat: 'YYYY-MM-DD',
+          timeFormat: 'HH:mm',
+          calendarTodayLabel: 'Today'
+        }
+      },
       // Optionally, you could store cart items as an array of objects
       {
         name: 'cartItems',
