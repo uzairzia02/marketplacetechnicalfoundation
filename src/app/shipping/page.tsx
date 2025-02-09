@@ -279,6 +279,8 @@ const ShippingDetails = () => {
                 >
                   Confirm payment ${grandTotal.toFixed(2)}
                 </button>
+                console.log(`"Sanity API URL:", ${process.env.NEXT_PUBLIC_SANITY_API_TOKEN}`);
+
               </div>
             </form>
           </div>
