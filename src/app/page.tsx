@@ -6,6 +6,7 @@ import Slider from "./components/slider";
 import ProductCards from "./products/productcard";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import Categories from "./categories/page";
 
 export default function Home() {
 
@@ -18,6 +19,7 @@ export default function Home() {
     <Banner />
     <Newest />
     <ProductCards />
+    <Categories />
 
     
    </div>

@@ -30,10 +30,14 @@ const ShippingDetails = () => {
     setShippingInfo((prev) => ({ ...prev, [name]: value }));
   };
 
+  const deliveryCharge = 5;
+
   const grandTotal = cartItems.reduce(
     (total, item) => total + item.price * item.quantity,
     0
   );
+
+  const totalAmount = grandTotal + deliveryCharge; // Adding delivery charge
 
   const validateForm = () => {
     const requiredFields = [
@@ -70,8 +74,7 @@ const ShippingDetails = () => {
         _type: 'shipping',
         ...shippingInfo,
         paymentMethod: 'COD',
-        grandTotal: grandTotal,
-        orderDate: new Date().toISOString(), // Added orderDate field
+        grandTotal: totalAmount, // Store final amount including delivery charge        orderDate: new Date().toISOString(), 
         cartItems: cartItems.map((item) => ({
           _type: 'cartItem', 
           _key: Math.random().toString(36).substring(2, 15), // Unique key
@@ -277,7 +280,7 @@ const ShippingDetails = () => {
                   type="submit"
                   className="min-w-[150px] px-6 py-3.5 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700"
                 >
-                  Confirm payment ${grandTotal.toFixed(2)}
+                  Confirm payment ${totalAmount.toFixed(2)}
                 </button>
               </div>
             </form>
@@ -365,12 +368,19 @@ const ShippingDetails = () => {
               </div>
               <div className="mb-6"></div>
               <div className="p-6 border-t border-gray-300">
+              <div className="flex justify-between items-center mb-5 text-gray-700 ">
+                    Delivery Charges: <span className="text-lg font-bold ">
+                    ${deliveryCharge.toFixed(2)}
+                    </span>
+                  </div>
                 <div className="flex justify-between items-center">
-                  <h4 className="text-lg font-bold text-gray-800">
+                  
+
+                  <h4 className="text-xl font-bold text-gray-800">
                     Grand Total:
                   </h4>
-                  <span className="text-lg font-bold text-gray-800">
-                    ${grandTotal.toFixed(2)}
+                  <span className="text-xl font-bold text-gray-800">
+                    ${totalAmount.toFixed(2)}
                   </span>
                 </div>
               </div>

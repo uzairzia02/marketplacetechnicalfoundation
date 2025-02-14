@@ -81,7 +81,7 @@ const ProductCards: React.FC = () => {
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {products.map((product) => (
-          <div key={product._id} className="border p-4 rounded-lg shadow-lg ">
+          <div key={product._id} className="border p-4 rounded-lg shadow-lg flex flex-col ">
             <Link
               href={`/product/${product.slug}`}
               className="hover:underline duration-300 "
@@ -108,7 +108,7 @@ const ProductCards: React.FC = () => {
               </div>
             </Link>
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-auto"
               onClick={() => addToCart(product)}
             >
               Add to Cart

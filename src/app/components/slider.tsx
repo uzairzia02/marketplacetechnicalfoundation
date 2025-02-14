@@ -5,9 +5,9 @@ export default function Slider() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const messages = [
-    "Delivery free all over Karachi",
-    "Exchange and refund can be done",
-    "Discounts available on shopping 5+ Products"
+    "Delivering all over Pakistan",
+    "Discounts available on shopping 5+ Products",
+    "Special discount for corporate clients"
   ];
 
   useEffect(() => {

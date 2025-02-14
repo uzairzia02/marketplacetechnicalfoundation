@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 
-export const revalidate = 5; // Revalidate every 5 seconds
+export const revalidate = 10;
 
 async function getData() {
   const query = `*[_type == "product"][0...4] | order(_createdAt desc){
