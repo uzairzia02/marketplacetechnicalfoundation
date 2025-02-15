@@ -6,7 +6,6 @@ import { client } from "@/sanity/lib/client";
 import { FaStar, FaExchangeAlt, FaHandshake, FaTruck } from "react-icons/fa";
 import { RiSecurePaymentFill } from "react-icons/ri";
 import React, { useEffect, useState } from "react";
-import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { addToCart as addToCartRedux } from "../../redux/cartslice";
