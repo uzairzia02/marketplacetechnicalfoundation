@@ -74,10 +74,11 @@ const ShippingDetails = () => {
         _type: 'shipping',
         ...shippingInfo,
         paymentMethod: 'COD',
-        grandTotal: totalAmount, // Store final amount including delivery charge        orderDate: new Date().toISOString(), 
+        grandTotal: totalAmount,      
+        orderDate: new Date().toISOString(), 
         cartItems: cartItems.map((item) => ({
           _type: 'cartItem', 
-          _key: Math.random().toString(36).substring(2, 15), // Unique key
+          _key: Math.random().toString(36).substring(2, 15), 
           product: {
             _type: 'reference',
             _ref: item._id,
